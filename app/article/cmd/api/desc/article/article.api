@@ -1,0 +1,56 @@
+syntax = "v1"
+
+info(
+    title:   "文章服务"
+    desc:    "文章服务"
+    version: "v1"
+)
+
+// 数据库对应的article表
+type Article {
+    Id       int64  `json:"id"`
+    Title    string `json:"title"`
+    Content  string `json:"content"`
+}
+
+// 获取文章列表
+type (
+    GetArticleListReq{
+
+    }
+
+    GetArticleListResp {
+        Articles []Article `json:"Articles"`
+    }
+)
+
+// 创建文章
+type(
+    CreateArticleReq{
+        Title string `json:"title"`
+        Content string `json:"content"`
+    }
+
+    CreateArticleResp{
+
+    }
+)
+
+// 删除文章
+type (
+    DeleteArticleReq {
+        Id int64 `json:"id"`
+    }
+    DeleteArticleResp {
+    }
+)
+// 更新文章
+type (
+    UpdateArticleReq {
+        Id      int64  `json:"id"`
+        Title   string `json:"title"`
+        Content string `json:"content"`
+    }
+    UpdateArticleResp {
+    }
+)

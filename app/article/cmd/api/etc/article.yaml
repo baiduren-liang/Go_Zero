@@ -1,0 +1,19 @@
+Name: article-api #服务名称
+Host: 127.0.0.1 #监听地址
+Port: 1001 #监听端口
+Mode: dev #运行模式
+# 配置MySQL Redis
+DB:
+  DataSource: root:123456@tcp(127.0.0.1:3308)/zero?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+Cache:
+  - Host: 127.0.0.1:6379
+    Pass:
+
+articleRpcClient:
+  endpoints:
+    - "127.0.0.1:2001"
+  nonBlock: true
+  Etcd:
+    hosts:
+      - "http://localhost:2379"
+    key: "article.rpc"
