@@ -31,8 +31,9 @@ func (l *AddArticleLogic) AddArticle(in *pb.AddArticleReq) (*pb.AddArticleResp, 
 	article.Title = in.Title
 	article.Content = in.Content
 	// check
-	res, err := l.svcCtx.ArticleModel.FindByTitle(l.ctx, in.Title)
+	res, _ := l.svcCtx.ArticleModel.FindByTitle(l.ctx, in.Title)
 	fmt.Printf("res:%+v\n", res)
+	_, err := l.svcCtx.ArticleModel.Insert(l.ctx, article)
 	if err != nil {
 		return nil, err
 	}
