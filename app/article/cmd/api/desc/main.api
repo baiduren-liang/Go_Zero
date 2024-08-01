@@ -15,7 +15,7 @@ import (
 	group:  article
 )
 service article {
-	@doc "获得文章列表"
+	@doc "获得文章"
 	@handler getArticles
 	post /getArticles (GetArticleListReq) returns (GetArticleListResp)
 
