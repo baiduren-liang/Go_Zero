@@ -1,15 +1,22 @@
 syntax = "v1"
 
-type Request {
-	Name string `path:"name,options=you|me"`
+type PostSingleReq {
+	Message string `json:"message"`
 }
 
-type Response {
+type PostSingleRes {
 	Message string `json:"message"`
 }
 
 service single-api {
+	@doc "基础测试"
 	@handler SingleHandler
-	get /from/:name (Request) returns (Response)
+	get /from/:name (PostSingleReq) returns (PostSingleReq)
+}
+
+service single-api {
+	@doc "post测试"
+	@handler PostDemoHandler
+	post /post/single (PostSingleReq) returns (PostSingleRes)
 }
 
